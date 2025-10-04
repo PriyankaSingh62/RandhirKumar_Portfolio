@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Civil Engineering Insights</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-building"></i>
+                <span>Civil Engineer</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" target="_blank">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link" target="_blank">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#projects" class="nav-link" target="_blank">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link" target="_blank">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="intro.html" class="nav-link" target="_blank">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link" target="_blank">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    
+    <style>
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: var(--shadow-light);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-logo i {
+            margin-right: 0.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: var(--light-color);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* CSS Variables */
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --gray-light: #e2e8f0;
+            --light-color: #f1f5f9;
+            --border-radius: 12px;
+            --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+        .blog-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        
+        .blog-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .blog-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .blog-content {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+        
+        .blog-content-card {
+            padding: 2rem;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .blog-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .blog-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        .read-more i {
+            margin-left: 0.5rem;
+        }
+        
+        .blog-sidebar {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .category-list a {
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+        
+        .category-count {
+            background: var(--gray-light);
+            color: var(--text-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .newsletter-section {
+            background: var(--secondary-color);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--primary-color);
+        }
+        
+        .newsletter-button {
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --gray-light: #e2e8f0;
+            --light-color: #f1f5f9;
+            --border-radius: 12px;
+            --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Engineering Insights</h1>
+            <p>Expert articles, industry trends, and professional perspectives on civil engineering</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 3rem;">
+                <!-- Main Blog Posts -->
+                <div>
+                    <h2 class="section-title">Latest Articles</h2>
+                    <p class="section-subtitle">Stay updated with the latest developments in civil engineering</p>
+                    
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="blog-content-card">
+                                <span class="blog-category">Structural</span>
+                                <h3 class="blog-title">Modern Trends in Structural Engineering: Sustainable Design Practices</h3>
+                                <p class="blog-excerpt">Exploring how sustainable materials and innovative design approaches are reshaping the future of structural engineering, with focus on environmental impact and cost-effectiveness.</p>
+                                <div class="blog-meta">
+                                    <span class="blog-date">December 15, 2023</span>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="blog-content-card">
+                                <span class="blog-category">Green Building</span>
+                                <h3 class="blog-title">Green Building Certification: A Comprehensive Guide for Engineers</h3>
+                                <p class="blog-excerpt">Understanding LEED, IGBC, and other green building certification processes, including practical implementation strategies for construction projects.</p>
+                                <div class="blog-meta">
+                                    <span class="blog-date">December 10, 2023</span>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="blog-content-card">
+                                <span class="blog-category">Safety</span>
+                                <h3 class="blog-title">Construction Site Safety: Best Practices and Compliance Standards</h3>
+                                <p class="blog-excerpt">Essential safety protocols, risk management strategies, and regulatory compliance requirements for maintaining safe construction environments.</p>
+                                <div class="blog-meta">
+                                    <span class="blog-date">December 5, 2023</span>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div class="blog-content-card">
+                                <span class="blog-category">Infrastructure</span>
+                                <h3 class="blog-title">Water Management Systems: Engineering Solutions for Urban Challenges</h3>
+                                <p class="blog-excerpt">Advanced water treatment, drainage, and conservation systems designed to address urban flooding and water scarcity issues in modern cities.</p>
+                                <div class="blog-meta">
+                                    <span class="blog-date">November 28, 2023</span>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="blog-content-card">
+                                <span class="blog-category">Technology</span>
+                                <h3 class="blog-title">Digital Transformation in Civil Engineering: BIM and Beyond</h3>
+                                <p class="blog-excerpt">How Building Information Modeling (BIM) and other digital tools are revolutionizing project planning, execution, and maintenance in construction.</p>
+                                <div class="blog-meta">
+                                    <span class="blog-date">November 20, 2023</span>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="blog-content-card">
+                                <span class="blog-category">Residential</span>
+                                <h3 class="blog-title">Affordable Housing Solutions: Engineering Approaches to Cost-Effective Construction</h3>
+                                <p class="blog-excerpt">Innovative engineering techniques and materials that help reduce construction costs while maintaining quality and safety standards in residential projects.</p>
+                                <div class="blog-meta">
+                                    <span class="blog-date">November 15, 2023</span>
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div>
+                    <div class="blog-sidebar">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="#">Structural Engineering <span class="category-count">12</span></a></li>
+                            <li><a href="#">Green Building <span class="category-count">8</span></a></li>
+                            <li><a href="#">Infrastructure <span class="category-count">15</span></a></li>
+                            <li><a href="#">Construction Management <span class="category-count">10</span></a></li>
+                            <li><a href="#">Safety & Compliance <span class="category-count">6</span></a></li>
+                            <li><a href="#">Technology <span class="category-count">9</span></a></li>
+                            <li><a href="#">Water Systems <span class="category-count">7</span></a></li>
+                            <li><a href="#">Residential Design <span class="category-count">11</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="blog-sidebar">
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <ul class="category-list">
+                            <li><a href="#">Understanding Load Calculations</a></li>
+                            <li><a href="#">Foundation Types and Selection</a></li>
+                            <li><a href="#">Seismic Design Principles</a></li>
+                            <li><a href="#">Construction Material Selection</a></li>
+                            <li><a href="#">Project Scheduling Best Practices</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-dark);">Stay Updated</h2>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Subscribe to our newsletter for the latest engineering insights and industry updates</p>
+            
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+            
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Homepage
+            </a>
+        </div>
+    </section>
+</body>
+</html>

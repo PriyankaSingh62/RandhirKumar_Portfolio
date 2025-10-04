@@ -1,0 +1,40 @@
+{
+  "name": "Randhir Kumar - Civil Engineering Services",
+  "short_name": "Civil Engineer",
+  "description": "Professional Civil Engineering Services by Randhir Kumar",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a365d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "pa.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pa.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "professional"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Contact",
+      "url": "/index.html#contact",
+      "description": "Get in touch for engineering services"
+    },
+    {
+      "name": "Services",
+      "url": "/services.html",
+      "description": "View our professional services"
+    }
+  ]
+}
